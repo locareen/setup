@@ -1,0 +1,7 @@
+<pass>errors=remount-ro,noatime,nobh 0       1
+#LinuxMint was on /dev/sda4 during installation
+UUID=b198b9b8-82cd-4d37-b986-b8169f9eec0b /media/LinuxMint ext4 defaults 0 0
+#Windows10 was on /dev/sda2 during installation
+UUID=62FC7AF8FC7AC5B7 			  /media/Windows10 ntfs defaults 0 0
+tmpfs  /tmp  tmpfs  defaults,noatime  0  0
+tmpfs  /var/tmp  tmpfs  defaults,noatime  0  0
