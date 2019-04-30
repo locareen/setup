@@ -56,6 +56,9 @@ wget http://download.opensuse.org/repositories/home:/codestation/xUbuntu_18.04/a
 wget http://download.opensuse.org/repositories/home:/codestation/xUbuntu_18.04/amd64/qcma-cli_0.4.2_amd64.deb
 wget http://download.opensuse.org/repositories/home:/codestation/xUbuntu_18.04/amd64/qcma_0.4.2_amd64.deb
 sudo dpkg -i ./*
-
+#Tear解消
+sudo mkdir /etc/X11/xorg.conf.d
+sudo cp ./20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
+#blueman削除
 sudo apt-get purge -y blueman
 sudo apt-get autoremove
