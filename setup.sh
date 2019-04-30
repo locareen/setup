@@ -34,12 +34,12 @@ sudo apt-get install -y virtualbox
 sudo apt-get install -y filezilla
 sudo apt-get install -y wine64
 sudo apt-get install -y winetricks
-winetricks allfonts
-sudo curl -o /usr/share/applications/wine.desktop https://raw.githubusercontent.com/wine-mirror/wine/5c2d6211f6590d3856dc9188593b3d3597c8b441/loader/wine.desktop
 sudo apt-get install -y docker-ce
 sudo apt-get install -y brasero
-sudo apt-get install -y fileziilla
 sudo snap install gimp
+#Wine後処理
+winetricks allfonts
+sudo curl -o /usr/share/applications/wine.desktop https://raw.githubusercontent.com/wine-mirror/wine/5c2d6211f6590d3856dc9188593b3d3597c8b441/loader/wine.desktop
 #Mozc辞書強化
 sudo systemctl start docker
 sudo docker run -d --name mozc-ut2 shufo/mozc-ut2:bionic
@@ -48,7 +48,7 @@ sudo docker rm mozc-ut2
 cd ./deb
 sudo dpkg -i ./mozc-data_*.deb ./mozc-server_*.deb ./mozc-utils-gui_*.deb ./fcitx-mozc_*.deb
 cd ../
-rm -r ./deb
+sudo rm -r ./deb
 #QCMA導入
 mkdir /tmp/qcma
 cd /tmp/qcma
