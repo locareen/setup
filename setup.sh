@@ -45,6 +45,7 @@ apt-get install -y winehq-stable
 apt-get install -y docker-ce
 apt-get install -y cabextract
 apt-get install -y brasero
+apt-get install -y timeshift
 snap install gimp
 #Wine後処理
 cd "/usr/bin"
