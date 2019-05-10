@@ -43,7 +43,6 @@ apt-get install -y virtualbox-6.0
 apt-get install -y filezilla
 apt-get install -y winehq-stable
 apt-get install -y docker-ce
-apt-get install -y cabextract
 apt-get install -y brasero
 apt-get install -y timeshift
 snap install gimp
