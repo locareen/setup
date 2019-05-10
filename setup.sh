@@ -18,12 +18,6 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 #GIMP2.8削除
 apt-get purge -y gimp
-#Wineリポジトリ追加
-dpkg --add-architecture i386
-sh -c 'echo "deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main" > /etc/apt/sources.list.d/winehq.list'
-wget -q https://dl.winehq.org/wine-builds/winehq.key
-apt-key add winehq.key
-rm winehq.key
 #インストール
 apt update
 apt-get install -y xterm
@@ -35,22 +29,15 @@ apt-get install -y winehq-stable
 apt-get install -y docker-ce
 apt-get install -y brasero
 apt-get install -y timeshift
-snap install gimp
-#Wine後処理
-cd "/usr/bin"
-wget  https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-chmod +x winetricks
-winetricks allfonts
-curl -o /usr/share/applications/wine.desktop https://raw.githubusercontent.com/wine-mirror/wine/5c2d6211f6590d3856dc9188593b3d3597c8b441/loader/wine.desktop
-#Mozc辞書強化
-systemctl start docker
-docker run -d --name mozc-ut2 shufo/mozc-ut2:bionic
-docker cp mozc-ut2:/app/ ./deb/
-docker rm mozc-ut2
-cd ./deb
+apt-get install -y plank
+#mozc-ut2導入
+#systemctl start docker
+#docker run -d --name mozc-ut2 shufo/mozc-ut2:bionic
+#docker cp mozc-ut2:/app/ ./deb/
+#docker rm mozc-ut2
+cd ./mozc-ut2
 dpkg -i ./mozc-data_*.deb ./mozc-server_*.deb ./mozc-utils-gui_*.deb ./fcitx-mozc_*.deb
 cd ../
-rm -r ./deb
 #QCMA導入
 mkdir /tmp/qcma
 cd /tmp/qcma
@@ -80,5 +67,5 @@ done
 fc-cache -fv
 #blueman削除
 apt-get purge -y blueman
-
+apt-get purge -y cario-dock
 apt-get autoremove
