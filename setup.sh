@@ -9,13 +9,6 @@ apt-get update &&  apt-get -y upgrade
 ./eng-home-dir.sh
 #fcitx-Mozc導入
 apt-get install -y fcitx fcitx-mozc mozc-utils-gui
-#VSCodeリポジトリ追加
-apt-get install -y curl
-apt-get install -y apt-transport-https
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-rm microsoft.gpg
 #Virtualboxリポジトリ追加
 sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list'
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- |  apt-key add  -
@@ -25,8 +18,6 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 #GIMP2.8削除
 apt-get purge -y gimp
-#Snapd追加
-apt-get install spapd
 #Wineリポジトリ追加
 dpkg --add-architecture i386
 sh -c 'echo "deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main" > /etc/apt/sources.list.d/winehq.list'
@@ -37,7 +28,6 @@ rm winehq.key
 apt update
 apt-get install -y xterm
 apt-get install -y git
-apt-get install -y code
 apt-get install -y vim
 apt-get install -y virtualbox-6.0
 apt-get install -y filezilla
