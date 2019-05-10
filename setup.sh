@@ -12,10 +12,6 @@ apt-get install -y fcitx fcitx-mozc mozc-utils-gui
 #Virtualboxリポジトリ追加
 sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" > /etc/apt/sources.list.d/virtualbox.list'
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- |  apt-key add  -
-#Dockerリポジトリ追加
-agi apt-transport-https ca-certificates
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 #GIMP2.8削除
 apt-get purge -y gimp
 #インストール
@@ -26,7 +22,6 @@ apt-get install -y vim
 apt-get install -y virtualbox-6.0
 apt-get install -y filezilla
 apt-get install -y winehq-stable
-apt-get install -y docker-ce
 apt-get install -y brasero
 apt-get install -y timeshift
 apt-get install -y plank
