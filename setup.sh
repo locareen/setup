@@ -30,9 +30,12 @@ apt-get install -y plank
 #docker run -d --name mozc-ut2 shufo/mozc-ut2:bionic
 #docker cp mozc-ut2:/app/ ./deb/
 #docker rm mozc-ut2
-cd ./mozc-ut2
+mkdir /tmp/mozc-ut2 && cd /tmp/mozc-ut2
+wget "https://drive.google.com/uc?export=download&id=1XQvIEktTZ1d9ENsVL8daI8zXYBpCvIsc"
+tar xfv "uc?export=download&id=1XQvIEktTZ1d9ENsVL8daI8zXYBpCvIsc"
 dpkg -i ./mozc-data_*.deb ./mozc-server_*.deb ./mozc-utils-gui_*.deb ./fcitx-mozc_*.deb
 cd ../
+rm -r mozc-ut2
 #QCMA導入
 mkdir /tmp/qcma
 cd /tmp/qcma
