@@ -5,8 +5,6 @@ if [ $UID != 0 ]; then
         exit 1
 fi
 apt-get update &&  apt-get -y upgrade
-#ディレクトリ英語化
-./eng-home-dir.sh
 #fcitx-Mozc導入
 apt-get install -y fcitx fcitx-mozc mozc-utils-gui
 #Virtualboxリポジトリ追加
