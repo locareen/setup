@@ -4,9 +4,13 @@ if [ $UID != 0 ]; then
         echo "You must run this as root."
         exit 1
 fi
+mv /etc/apt/sources.list /etc/apt/sources.list.bak
+echo "deb deb http://ftp.yz.yamagata-u.ac.jp/debian/ sid main non-free contrib" > /etc/apt/sources.list
+echo "deb-src http://ftp.yz.yamagata-u.ac.jp/debian/ sid main non-free contrib" >> /etc/apt/sources.list
 apt-get update &&  apt-get -y upgrade
 #visual studio codeリポジトリ追加
-apt install curl
+apt-get install -u curl
+apt-get install -y apt-transport-https
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
