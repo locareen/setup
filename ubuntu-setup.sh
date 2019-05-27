@@ -55,7 +55,7 @@ for i in "$name-ExtraLight.ttf" "$name-Light.ttf" "$name-Normal.ttf" "$name-Bold
 	mv $i /usr/share/fonts/truetype/GenShinGothic/
 done
 
-name="GenShinGothic-monospace"
+name="GenShinGothic-Monospace"
 for i in "$name-ExtraLight.ttf" "$name-Light.ttf" "$name-Normal.ttf" "$name-Bold.ttf" "$name-Heavy.ttf"; do
         mv $i /usr/share/fonts/truetype/GenShinGothic/
 done
