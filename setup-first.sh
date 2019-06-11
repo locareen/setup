@@ -14,8 +14,6 @@ for i in $dir;do
 	ln -fs /home/share/$i ~/$i
 done
 
-sudo update-alternatives --config editor
-
 sudo sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT=""/GRUB_CMDLINE_LINUX_DEFAULT="video=SVIDEO-1:d"/' /etc/default/grub
 sudo sed -i -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="clocksource=hpet"/' /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-mkconfig -o /boot/grub/grub.cfg
