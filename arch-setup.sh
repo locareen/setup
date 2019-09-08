@@ -4,7 +4,7 @@ if [ $UID = 0 ]; then
 	exit 1
 fi
 mkdir /tmp/yay && cd /tmp/yay && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
-yay -S openssl pulseaudio pavucontrol vim fcitx-mozc fcitx-im fcitx-configtool chromium git openssh os-prober ntfs-3g p7zip virtualbox linux-headers visual-studio-code-bin virtualbox-ext-oracle ghostscript cnijfilter-mg6300 cups gsfonts cups-pdf poppler xsel dosfstools wget --noconfirm
+yay -S openssh pulseaudio pavucontrol vim fcitx-mozc fcitx-im fcitx-configtool chromium git openssh os-prober ntfs-3g p7zip virtualbox linux-headers visual-studio-code-bin virtualbox-ext-oracle ghostscript cnijfilter-mg6300 cups gsfonts cups-pdf poppler xsel dosfstools wget --noconfirm
 echo -e 'Section "InputClass"\n Identifier "Keyboard Defaults"\n MatchIsKeyboard "yes"\n Option "XKbLayout" "jp"\n EndSection' | sudo tee /etc/X11/xorg.conf.d/10-keyboard.conf > /dev/null
 echo -e 'KEYMAP=jp106' | sudo tee  /etc/vconsole.conf > /dev/null
 echo -e 'export GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS="@im=fcitx"' | sudo tee  ~/.xprofile > /dev/null
