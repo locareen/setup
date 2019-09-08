@@ -5,34 +5,17 @@ if [ $UID != 0 ]; then
         exit 1
 fi
 mv /etc/apt/sources.list /etc/apt/sources.list.bak
-echo "deb deb http://ftp.yz.yamagata-u.ac.jp/debian/ sid main non-free contrib" > /etc/apt/sources.list
-echo "deb-src http://ftp.yz.yamagata-u.ac.jp/debian/ sid main non-free contrib" >> /etc/apt/sources.list
+echo "deb http://ftp.yz.yamagata-u.ac.jp/debian/ buster main non-free contrib" > /etc/apt/sources.list
+echo "deb-src http://ftp.yz.yamagata-u.ac.jp/debian/ buster main non-free contrib" >> /etc/apt/sources.list
 apt-get update &&  apt-get -y upgrade
 #visual studio codeリポジトリ追加
-apt-get install -u curl
-apt-get install -y apt-transport-https
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+apt-get install -u curl apt-transport-https gpg
+apt-get install -y curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
 sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-#qcmaリポジトリ追加
-echo 'deb http://download.opensuse.org/repositories/home:/codestation/Debian_9.0/ /' > /etc/apt/sources.list.d/home:codestation.list
-wget -nv https://download.opensuse.org/repositories/home:codestation/Debian_9.0/Release.key -O Release.key
-apt-key add - < Release.key
-
 #インストール
 apt-get update
-apt-get install -y fcitx fcitx-mozc mozc-utils-gui
-apt-get install -y xterm
-apt-get install -y git
-apt-get install -y vim
-apt-get install -y code
-apt-get install -y virtualbox
-apt-get install -y filezilla
-apt-get install -y brasero
-apt-get install -y timeshift
-apt-get install -y plank
-apt-get install -y p7zip
-apt-get install -y qcma
+apt-get install -y fcitx fcitx-mozc mozc-utils-gui wget xterm git vim code p7zip
 #mozc-ut2導入
 mkdir /tmp/mozc-ut2 && cd /tmp/mozc-ut2
 wget "https://drive.google.com/uc?export=download&id=1XQvIEktTZ1d9ENsVL8daI8zXYBpCvIsc"
