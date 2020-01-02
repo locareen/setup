@@ -1,2 +1,0 @@
-GRUB_CMDLINE_LINUX_DEFAULT="video=SVIDEO-1:d"
-GRUB_CMDLINE_LINUX="clocksource=hpet"
