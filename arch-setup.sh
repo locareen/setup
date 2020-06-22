@@ -4,15 +4,26 @@ if [ $UID = 0 ]; then
 	echo "You must not run this as root."
 	exit 1
 fi
-# mkdir /tmp/yay && cd /tmp/yay && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si --noconfirm
-INSTALL="openssh pulseaudio pavucontrol vim fcitx-mozc fcitx-im fcitx-configtool chromium git os-prober ntfs-3g ttf-genshin-gothic adobe-source-han-serif-jp-fonts visual-studio-code-bin ghostscript cups gsfonts cups-pdf poppler xsel dosfstools wget cronie rsync"
+mkdir /tmp/yay && cd /tmp/yay && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si --noconfirm
+INSTALL="openssh pulseaudio pavucontrol vim fcitx-mozc fcitx-im fcitx-configtool chromium git os-prober ntfs-3g ttf-genshin-gothic adobe-source-han-serif-jp-fonts visual-studio-code-bin ghostscript cups gsfonts cups-pdf poppler xsel dosfstools wget cronie rsync bat fd ripgrep powerline"
 yay -S $INSTALL --noconfirm
 wget -O /tmp/cnijfilter-mg6300-3.80-9-x86_64.pkg.tar.xz  https://ymu.dl.osdn.jp/storage/g/b/bl/bluestarlinux/repo/x86_64/cnijfilter-mg6300-3.80-9-x86_64.pkg.tar.xz
 sudo pacman -U /tmp/cnijfilter-mg6300-3.80-9-x86_64.pkg.tar.xz
-
 yay -Rs $(yay -Qdtq)
-echo -e 'Section "InputClass"\n Identifier "Keyboard Defaults"\n MatchIsKeyboard "yes"\n Option "XKbLayout" "jp"\n EndSection' | sudo tee /etc/X11/xorg.conf.d/10-keyboard.conf > /dev/null
-echo -e 'KEYMAP=jp106' | sudo tee  /etc/vconsole.conf > /dev/null
+
+
+
+mkdir ~/git && cd ~/git
+git clone git@github.com:yangniao23/myvimrc.git
+git clone git@github.com:yangniao23/myzshrc.git
+git clone git@github.com:zsh-users/zsh-autosuggestions.git
+git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
+sudo mkdir -p /usr/share/zsh/plugins
+sudo ln -sf ~/git/zsh-autosuggestions /usr/share/zsh/plugins/zsh-autosuggestions
+sudo ln -sf ~/git/zsh-syntax-highlighting /usr/share/zsh/plugins/zsh-syntax-highlighting
+ln -sf myvimrc/.vimrc ~/.vimrc
+ln -sf myzshrc/.zshrc ~/.zshrc
+
 echo -e 'export GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS="@im=fcitx"' | sudo tee  ~/.xprofile > /dev/null
 git config --global user.name "yangniao23"
 git config --global user.email "yangniao23@gmail.com"
